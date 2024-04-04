@@ -1,4 +1,5 @@
-﻿using Reserva.Core.Interfaces.Repository.MySql;
+﻿using Microsoft.EntityFrameworkCore;
+using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 using Reserva.Repository.Context;
 
@@ -26,12 +27,12 @@ namespace Reserva.Repository.Data.MySql
 
         public Usuario GetUsuarioById(int? id)
         {
-            return _context.Usuarios.FirstOrDefault(m => m.UsuId == id);
+            return _context.Usuarios.Include(u => u.Est).FirstOrDefault(m => m.UsuId == id);
         }
 
         public List<Usuario> GetUsuarios()
         {
-            return _context.Usuarios.ToList();
+            return _context.Usuarios.Include(u => u.Est).ToList();
         }
 
         public void UpdateUsuario(Usuario usuario)

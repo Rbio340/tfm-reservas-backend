@@ -1,4 +1,5 @@
-﻿using Reserva.Core.Interfaces.Repository.MySql;
+﻿using Microsoft.EntityFrameworkCore;
+using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 using Reserva.Repository.Context;
 
@@ -27,12 +28,13 @@ namespace Reserva.Repository.Data.MySql
 
         public List<Reservas> GetReserva()
         {
-            return _context.Reservas.ToList();
+            return _context.Reservas.Include(r => r.Esp).Include(r => r.Usu).ToList();
         }
 
         public Reservas GetReservaById(int? id)
         {
-            return _context.Reservas.FirstOrDefault(m => m.ResId == id);
+            return _context.Reservas.Include(r => r.Esp)
+                .Include(r => r.Usu) .FirstOrDefault(m => m.ResId == id);
         }
 
         public bool ReservaExists(int id)
