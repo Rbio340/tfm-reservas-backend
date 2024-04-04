@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Reserva.Core.Models;
+﻿namespace Reserva.Core.Models;
 
 public partial class AreaComun
 {

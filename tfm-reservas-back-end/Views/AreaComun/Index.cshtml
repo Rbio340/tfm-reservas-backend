@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Reserva.Core.Models.AreaComun>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EspNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Catesp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Est)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catesp.CatespNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Est.EstNombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EspId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EspId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EspId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
