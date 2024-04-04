@@ -5,7 +5,7 @@ namespace Reserva.Core.Interfaces.Repository.MySql
     public interface IAreaComunRepository
     {
         public List<AreaComun> GetAreasComun();
-        public AreaComun GetCambioById(int? id);
+        public AreaComun GetAreaComunById(int? id);
         public void CreateAreaComun(AreaComun areaComun);
         public void UpdateAreaComun(AreaComun areaComun);
         public void DeleteAreaComun(AreaComun areaComun);

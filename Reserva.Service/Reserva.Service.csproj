@@ -10,4 +10,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Reserva.Repository\Reserva.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,7 @@
-﻿using Reserva.Core.Interfaces.Repository.MySql;
+﻿using Microsoft.EntityFrameworkCore;
+using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 using Reserva.Repository.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Reserva.Repository.Data.MySql
 {
@@ -37,12 +33,12 @@ namespace Reserva.Repository.Data.MySql
 
         public List<AreaComun> GetAreasComun()
         {
-            return _context.AreaComuns.ToList();
+            return _context.AreaComuns.Include(a => a.Catesp).Include(a => a.Est).ToList();
         }
 
-        public AreaComun GetCambioById(int? id)
+        public AreaComun GetAreaComunById(int? id)
         {
-            return _context.AreaComuns.FirstOrDefault(m => m.EspId == id);
+            return _context.AreaComuns.Include(a => a.Catesp).Include(a => a.Est).FirstOrDefault(m => m.EspId == id);
         }
 
         public void UpdateAreaComun(AreaComun areaComun)

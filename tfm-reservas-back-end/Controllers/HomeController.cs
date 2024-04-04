@@ -13,7 +13,7 @@ namespace tfm_reservas_back_end.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() 
         {
             return View();
         }
