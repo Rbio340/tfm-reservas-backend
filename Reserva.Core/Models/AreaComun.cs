@@ -1,4 +1,6 @@
-﻿namespace Reserva.Core.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Reserva.Core.Models;
 
 public partial class AreaComun
 {
@@ -10,9 +12,12 @@ public partial class AreaComun
 
     public string EspNombre { get; set; } = null!;
 
+    [JsonIgnore] 
     public virtual CatalogoAreaComun? Catesp { get; set; }
 
+    [JsonIgnore] 
     public virtual Estado? Est { get; set; }
 
+    [JsonIgnore] 
     public virtual ICollection<Reservas> Reservas { get; set; } = new List<Reservas>();
 }
