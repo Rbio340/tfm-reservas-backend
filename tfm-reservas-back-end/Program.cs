@@ -7,8 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ReservaContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default"))
-.EnableSensitiveDataLogging());
+builder.Services.AddDbContext<ReservaContext>(options =>
+    options.UseMySQL(builder.Configuration.GetConnectionString("Default"))
+           .EnableSensitiveDataLogging());
 
 // Repository
 builder.Services.AddScoped<IAreaComunRepository, AreaComunRepository>();

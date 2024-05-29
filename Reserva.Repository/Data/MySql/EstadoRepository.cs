@@ -32,7 +32,8 @@ namespace Reserva.Repository.Data.MySql
 
         public List<Estado> GetEstado()
         {
-            return _context.Estados.ToList();
+           var estados = _context.Estados.ToList();
+            return estados;
         }
 
         public Estado GetEstadoById(int? id)
