@@ -37,7 +37,7 @@ public partial class ReservaContext : DbContext
         {
             entity.HasKey(e => e.EspId).HasName("PRIMARY");
 
-            entity.ToTable("area_comun");
+            entity.ToTable("AREA_COMUN");
 
             entity.HasIndex(e => e.CatespId, "FK_ESPACIO_TIENE_CATALOGO_DE_ESPACIO");
 
@@ -65,7 +65,7 @@ public partial class ReservaContext : DbContext
         {
             entity.HasKey(e => e.CatespId).HasName("PRIMARY");
 
-            entity.ToTable("catalogo_area_comun");
+            entity.ToTable("CATALOGO_AREA_COMUN");
 
             entity.Property(e => e.CatespId).HasColumnName("CATESP_ID");
             entity.Property(e => e.CatespNombre)
@@ -89,7 +89,7 @@ public partial class ReservaContext : DbContext
         {
             entity.HasKey(e => e.ResId).HasName("PRIMARY");
 
-            entity.ToTable("reserva");
+            entity.ToTable("RESERVA");
 
             entity.HasIndex(e => e.EspId, "FK_AREA_COMUN_ESTA_EN_RESERVA");
 
@@ -121,7 +121,7 @@ public partial class ReservaContext : DbContext
         {
             entity.HasKey(e => e.UsuId).HasName("PRIMARY");
 
-            entity.ToTable("usuario");
+            entity.ToTable("USUARIO");
 
             entity.HasIndex(e => e.EstId, "FK_USUARIO_TIENE_ESTADO");
 
