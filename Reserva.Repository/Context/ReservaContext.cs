@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Reserva.Core.Dto;
 using Reserva.Core.Models;
 
 namespace Reserva.Repository.Context;
@@ -25,11 +26,13 @@ public partial class ReservaContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public DbSet<AreaComunDto> AreaComunDtos { get; set; }
+
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseMySQL("Server=db-demo-unir.ckhnlwuydbta.us-east-1.rds.amazonaws.com;Database=Reservas;Uid=admin;Pwd=123456789;");
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseMySQL("Server=db-demo-unir.ckhnlwuydbta.us-east-1.rds.amazonaws.com;Database=Reservas;Uid=admin;Pwd=123456789;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -140,8 +143,17 @@ public partial class ReservaContext : DbContext
                 .HasConstraintName("FK_USUARIO_TIENE_ESTADO");
         });
 
+        modelBuilder.Entity<AreaComunDto>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToView(null);
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+
+        
 }
