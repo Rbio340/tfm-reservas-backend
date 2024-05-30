@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Reserva.Core.Dto;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 using Reserva.Repository.Context;
@@ -25,20 +26,24 @@ namespace Reserva.Repository.Data.MySql
             _context.SaveChanges();
         }
 
-        public void DeleteAreaComun(AreaComun areaComun)
+        public void DeleteAreaComun(AreaComunDto areaComun)
         {
             _context.Remove(areaComun);
             _context.SaveChanges();
         }
 
-        public List<AreaComun> GetAreasComun()
+        public List<AreaComunDto> GetAreasComun()
         {
-            return _context.AreaComuns.Include(a => a.Catesp).Include(a => a.Est).ToList();
+            var areasComun = _context.AreaComunDtos.FromSqlRaw("CALL GetAreaComunDetails()").ToList();
+            return areasComun;
         }
 
-        public AreaComun GetAreaComunById(int? id)
+        public AreaComunDto GetAreaComunById(int? id)
         {
-            return _context.AreaComuns.Include(a => a.Catesp).Include(a => a.Est).FirstOrDefault(m => m.EspId == id);
+            var areaComun = _context.AreaComunDtos.FromSqlRaw("CALL GetAreaComunDetails()")
+                .AsEnumerable()
+                .FirstOrDefault(a => a.EspId == id);
+            return areaComun;
         }
 
         public void UpdateAreaComun(AreaComun areaComun)
