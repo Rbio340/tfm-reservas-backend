@@ -17,6 +17,7 @@ builder.Services.AddScoped<ICatalogoAreaComunRepository, CatalogoAreaComunReposi
 builder.Services.AddScoped<IEstadoRepository, EstadoRepository>();
 builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IConfiguracionRepository, ConfiguracionRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
