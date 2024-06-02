@@ -15,5 +15,6 @@ namespace Reserva.Core.Interfaces.Repository.MySql
         public void UpdateUsuario(Usuario usuario);
         public void DeleteUsuario(Usuario usuario);
         public bool UsuarioExists(int id);
+        public Usuario ValidateUser(string username, string password);
     }
 }
