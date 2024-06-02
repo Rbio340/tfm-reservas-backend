@@ -7,7 +7,7 @@ using Reserva.Repository.Data.MySql;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();  // Usar AddControllers en lugar de AddControllersWithViews para una API pura
 builder.Services.AddDbContext<ReservaContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("Default"))
            .EnableSensitiveDataLogging());
@@ -48,12 +48,13 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Error");
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+
 app.UseRouting();
+
 app.UseAuthorization();
 
 app.UseSwagger();
@@ -63,8 +64,6 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty; // para que Swagger UI esté en la raíz (opcional)
 });
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllers();
 
 app.Run();
