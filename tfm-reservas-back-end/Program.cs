@@ -1,18 +1,23 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Repository.Context;
 using Reserva.Repository.Data.MySql;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var key = Encoding.ASCII.GetBytes("TuClaveSecretaMuySegura12345"); // Reemplaza con tu propia clave secreta
+
 // Add services to the container.
-builder.Services.AddControllers();  // Usar AddControllers en lugar de AddControllersWithViews para una API pura
+builder.Services.AddControllers();
 builder.Services.AddDbContext<ReservaContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("Default"))
            .EnableSensitiveDataLogging());
 
-// Repository
+// Repositories
 builder.Services.AddScoped<IAreaComunRepository, AreaComunRepository>();
 builder.Services.AddScoped<ICatalogoAreaComunRepository, CatalogoAreaComunRepository>();
 builder.Services.AddScoped<IEstadoRepository, EstadoRepository>();
@@ -20,14 +25,42 @@ builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IConfiguracionRepository, ConfiguracionRepository>();
 
-// Configurar Swagger
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+// Configurar autenticación JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key)
+    };
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "Reserva API",
+        Title = "Reservas Backend",
         Description = "An ASP.NET Core Web API for managing reservations",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
@@ -53,8 +86,11 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowAll");
+
 app.UseRouting();
 
+app.UseAuthentication(); // Añadir autenticación
 app.UseAuthorization();
 
 app.UseSwagger();
