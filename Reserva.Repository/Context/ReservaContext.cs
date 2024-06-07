@@ -141,10 +141,18 @@ public partial class ReservaContext : DbContext
 
             entity.ToTable("ROL");
 
+            entity.HasIndex(e => e.EstId, "FK_Rol_Estado");
+
+
             entity.Property(e => e.IdRol).HasColumnName("ID_ROL");
+            entity.Property(e => e.EstId).HasColumnName("EST_ID");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(255)
                 .HasColumnName("NOMBRE");
+
+            entity.HasOne(d => d.Est).WithMany(p => p.Rols)
+            .HasForeignKey(d => d.EstId)
+            .HasConstraintName("FK_Rol_Estado");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
@@ -213,5 +221,5 @@ public partial class ReservaContext : DbContext
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
 
-        
+
 }

@@ -1,4 +1,5 @@
-﻿using Reserva.Core.Interfaces.Repository.MySql;
+﻿using Microsoft.EntityFrameworkCore;
+using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 using Reserva.Repository.Context;
 using System;
@@ -20,32 +21,35 @@ namespace Reserva.Repository.Data.MySql
 
         public void CreateRol(Rol rol)
         {
-            throw new NotImplementedException();
+            _context.Add(rol);
+            _context.SaveChanges();
         }
 
         public void DeleteRol(Rol rol)
         {
-            throw new NotImplementedException();
+            _context.Update(rol);
+            _context.SaveChanges();
         }
 
         public Rol GetRolById(int? id)
         {
-            throw new NotImplementedException();
+            return _context.Rols.Where(r => r.EstId == 1).FirstOrDefault(m => m.IdRol == id);
         }
 
         public List<Rol> GetRoles()
         {
-            throw new NotImplementedException();
+            return _context.Rols.Where(r => r.EstId == 1).ToList();
         }
 
         public bool RolExists(int id)
         {
-            throw new NotImplementedException();
+            return _context.Rols.Any(m => m.IdRol == id);
         }
 
         public void UpdateRol(Rol rol)
         {
-            throw new NotImplementedException();
+            _context.Update(rol);
+            _context.SaveChanges();
         }
     }
 }

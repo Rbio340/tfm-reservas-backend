@@ -72,7 +72,7 @@ namespace tfm_reservas_back_end.Controllers
                 return NotFound();
             }
 
-            rol.IdRol= 0;
+            rol.EstId= 0;
 
             _rolRepository.DeleteRol(rol);
 

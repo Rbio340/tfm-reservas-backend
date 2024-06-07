@@ -15,5 +15,7 @@ public partial class Estado
 
     public virtual ICollection<Reservas> Reservas { get; set; } = new List<Reservas>();
 
+    public virtual ICollection<Rol> Rols { get; set; } = new List<Rol>();
+
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }

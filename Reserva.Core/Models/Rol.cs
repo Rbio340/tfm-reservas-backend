@@ -1,4 +1,6 @@
-﻿namespace Reserva.Core.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Reserva.Core.Models;
 
 public partial class Rol
 {
@@ -6,5 +8,11 @@ public partial class Rol
 
     public string Nombre { get; set; } = null!;
 
+    public int? EstId { get; set; }
+
+    [JsonIgnore]
+    public virtual Estado? Est { get; set; }
+
+    [JsonIgnore]
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }
