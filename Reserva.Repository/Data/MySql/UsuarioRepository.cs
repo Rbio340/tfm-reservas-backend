@@ -21,18 +21,18 @@ namespace Reserva.Repository.Data.MySql
 
         public void DeleteUsuario(Usuario usuario)
         {
-            _context.Remove(usuario);
+            _context.Update(usuario);
             _context.SaveChanges();
         }
 
         public Usuario GetUsuarioById(int? id)
         {
-            return _context.Usuarios.Include(u => u.Est).FirstOrDefault(m => m.UsuId == id);
+            return _context.Usuarios.Include(u => u.Est).Include(u => u.IdRolNavigation).Where(u => u.EstId == 1).FirstOrDefault(m => m.UsuId == id);
         }
 
         public List<Usuario> GetUsuarios()
         {
-            return _context.Usuarios.Include(u => u.Est).ToList();
+            return _context.Usuarios.Include(u => u.Est).Where(u => u.EstId == 1).ToList();
         }
 
         public void UpdateUsuario(Usuario usuario)

@@ -16,8 +16,12 @@ public partial class Reservas
     public DateTime ResFechaFin { get; set; }
 
     public int ResNumPersonas { get; set; }
+    
+    public int? EstId { get; set; }
 
     public virtual AreaComun? Esp { get; set; }
+
+    public virtual Estado? Est { get; set; }
 
     public virtual Usuario? Usu { get; set; }
 }

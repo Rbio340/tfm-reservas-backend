@@ -62,7 +62,6 @@ namespace tfm_reservas_back_end.Controllers
             {
                 return BadRequest();
             }
-
             _areaComunRepository.UpdateAreaComun(areaComun);
 
             return NoContent();
@@ -77,6 +76,8 @@ namespace tfm_reservas_back_end.Controllers
             {
                 return NotFound();
             }
+
+            areaComun.EstId = 0;
 
             _areaComunRepository.DeleteAreaComun(areaComun);
 
