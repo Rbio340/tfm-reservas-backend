@@ -26,9 +26,9 @@ namespace Reserva.Repository.Data.MySql
             _context.SaveChanges();
         }
 
-        public void DeleteAreaComun(AreaComunDto areaComun)
+        public void DeleteAreaComun(AreaComun areaComun)
         {
-            _context.Remove(areaComun);
+            _context.Update(areaComun);
             _context.SaveChanges();
         }
 
@@ -38,11 +38,9 @@ namespace Reserva.Repository.Data.MySql
             return areasComun;
         }
 
-        public AreaComunDto GetAreaComunById(int? id)
+        public AreaComun GetAreaComunById(int? id)
         {
-            var areaComun = _context.AreaComunDtos.FromSqlRaw("CALL GetAreaComunDetails()")
-                .AsEnumerable()
-                .FirstOrDefault(a => a.EspId == id);
+            var areaComun = _context.AreaComuns.FirstOrDefault(a => a.EspId == id);
             return areaComun;
         }
 
@@ -50,6 +48,14 @@ namespace Reserva.Repository.Data.MySql
         {
             _context.Update(areaComun);
             _context.SaveChanges();
+        }
+
+        public AreaComunDto GetAreaComunDtoById(int? id)
+        {
+            var areaComun = _context.AreaComunDtos.FromSqlRaw("CALL GetAreaComunDetails()")
+            .AsEnumerable()
+            .FirstOrDefault(a => a.EspId == id);
+            return areaComun;
         }
     }
 }

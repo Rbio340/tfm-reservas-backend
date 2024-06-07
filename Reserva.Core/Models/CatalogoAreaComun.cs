@@ -10,6 +10,10 @@ public partial class CatalogoAreaComun
 
     public string CatespNombre { get; set; } = null!;
 
+    public int? EstId { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<AreaComun> AreaComuns { get; set; } = new List<AreaComun>();
+
+    public virtual Estado? Est { get; set; }
 }

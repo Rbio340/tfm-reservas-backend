@@ -22,19 +22,19 @@ namespace Reserva.Repository.Data.MySql
 
         public void DeleteReserva(Reservas reservas)
         {
-            _context.Remove(reservas);
+            _context.Update(reservas);
             _context.SaveChanges();
         }
 
         public List<Reservas> GetReserva()
         {
-            return _context.Reservas.Include(r => r.Esp).Include(r => r.Usu).ToList();
+            return _context.Reservas.Include(r => r.Esp).Include(r => r.Usu).Where(r => r.EstId == 1).ToList();
         }
 
         public Reservas GetReservaById(int? id)
         {
             return _context.Reservas.Include(r => r.Esp)
-                .Include(r => r.Usu) .FirstOrDefault(m => m.ResId == id);
+                .Include(r => r.Usu) .Where(r=> r.EstId==1).FirstOrDefault(m => m.ResId == id);
         }
 
         public bool ReservaExists(int id)

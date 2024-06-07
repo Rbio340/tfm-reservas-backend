@@ -108,6 +108,8 @@ namespace tfm_reservas_back_end.Controllers
                 return NotFound();
             }
 
+            reservas.EstId = 0;
+
             _reservaRepository.DeleteReserva(reservas);
 
             return NoContent();

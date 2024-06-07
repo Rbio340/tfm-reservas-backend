@@ -101,6 +101,7 @@ namespace tfm_reservas_back_end.Controllers
             {
                 return NotFound();
             }
+            catalogoAreaComun.EstId = 0;
             _areaComunRepository.DeleteCatalogoAreaComun(catalogoAreaComun);
             return NoContent();
         }
