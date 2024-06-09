@@ -111,18 +111,20 @@ public partial class ReservaContext : DbContext
             entity.Property(e => e.ResId).HasColumnName("RES_ID");
             entity.Property(e => e.EspId).HasColumnName("ESP_ID");
             entity.Property(e => e.EstId).HasColumnName("EST_ID");
+            entity.Property(e => e.HoraFinal)
+                .HasColumnType("time")
+                .HasColumnName("HORA_FINAL");
+            entity.Property(e => e.HoraIni)
+                .HasColumnType("time")
+                .HasColumnName("HORA_INI");
             entity.Property(e => e.ResFecha)
                 .HasColumnType("datetime")
                 .HasColumnName("RES_FECHA");
-            entity.Property(e => e.ResFechaFin)
-                .HasColumnType("datetime")
-                .HasColumnName("RES_FECHA_FIN");
             entity.Property(e => e.ResNumPersonas).HasColumnName("RES_NUM_PERSONAS");
             entity.Property(e => e.UsuId).HasColumnName("USU_ID");
 
             entity.HasOne(d => d.Esp).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.EspId)
-                .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_AREA_COMUN_ESTA_EN_RESERVA");
 
             entity.HasOne(d => d.Est).WithMany(p => p.Reservas)
@@ -131,7 +133,6 @@ public partial class ReservaContext : DbContext
 
             entity.HasOne(d => d.Usu).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.UsuId)
-                .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_USUARIO_HACE_RESERVA");
         });
 
