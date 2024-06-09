@@ -13,11 +13,13 @@ public partial class Reservas
 
     public DateTime ResFecha { get; set; }
 
-    public DateTime ResFechaFin { get; set; }
-
     public int ResNumPersonas { get; set; }
-    
+
     public int? EstId { get; set; }
+
+    public TimeOnly? HoraIni { get; set; }
+
+    public TimeOnly? HoraFinal { get; set; }
 
     public virtual AreaComun? Esp { get; set; }
 
