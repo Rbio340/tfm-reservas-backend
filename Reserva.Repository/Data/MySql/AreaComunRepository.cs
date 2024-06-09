@@ -22,6 +22,7 @@ namespace Reserva.Repository.Data.MySql
 
         public void CreateAreaComun(AreaComun areaComun)
         {
+            areaComun.EstId = 1;
             _context.Add(areaComun);
             _context.SaveChanges();
         }

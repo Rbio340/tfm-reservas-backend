@@ -21,6 +21,7 @@ namespace Reserva.Repository.Data.MySql
 
         public void CreateCatalogoAreaComun(CatalogoAreaComun catalogoArea)
         {
+            catalogoArea.EstId = 1;
             _context.Add(catalogoArea);
             _context.SaveChanges();
         }
