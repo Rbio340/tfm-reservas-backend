@@ -11,15 +11,15 @@ public partial class Reservas
 
     public int? EspId { get; set; }
 
-    public DateTime ResFecha { get; set; }
+    public DateTime? ResFecha { get; set; }
 
     public int ResNumPersonas { get; set; }
 
     public int? EstId { get; set; }
 
-    public TimeOnly? HoraIni { get; set; }
+    public TimeSpan? HoraIni { get; set; }
 
-    public TimeOnly? HoraFinal { get; set; }
+    public TimeSpan? HoraFinal { get; set; }
 
     public virtual AreaComun? Esp { get; set; }
 
