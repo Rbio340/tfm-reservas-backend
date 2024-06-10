@@ -42,7 +42,7 @@ namespace Reserva.Repository.Data.MySql
 
         public Configuracion GetConfiguracionById(int? id)
         {
-            return _context.Configuracion.FirstOrDefault(m => m.ConfigId== id);
+            return _context.Configuracion.FirstOrDefault(m => m.EspId== id);
         }
 
         public void UpdateConfiguracion(Configuracion configuracion)
