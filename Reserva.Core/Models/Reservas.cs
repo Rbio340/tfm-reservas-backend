@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Reserva.Core.Models;
 
@@ -21,9 +22,15 @@ public partial class Reservas
 
     public TimeSpan? HoraFinal { get; set; }
 
+    [JsonIgnore]
     public virtual AreaComun? Esp { get; set; }
 
+    [JsonIgnore]
     public virtual Estado? Est { get; set; }
 
+    [JsonIgnore]
     public virtual Usuario? Usu { get; set; }
+
+    public string EspNombre => Esp?.EspNombre;
+    public string UsuNombre => Usu?.UsuNombre;
 }
