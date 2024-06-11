@@ -26,9 +26,9 @@ namespace tfm_reservas_back_end.Controllers
         public ActionResult<Configuracion> GetConfiguracionById(int id)
         {
             var configuracion = _configuracionRepository.GetConfiguracionById(id);
-            if (configuracion == null)
+            if (configuracion == null || configuracion.ConfigId == 0) 
             {
-                return NotFound();
+                return new JsonResult(new { }); 
             }
 
             return Ok(configuracion);
