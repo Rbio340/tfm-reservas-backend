@@ -6,6 +6,7 @@ using System.Text;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Repository.Context;
 using Reserva.Repository.Data.MySql;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
