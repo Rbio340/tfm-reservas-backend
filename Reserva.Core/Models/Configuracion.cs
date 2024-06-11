@@ -8,7 +8,7 @@ namespace Reserva.Core.Models
 {
     public class Configuracion
     {
-        public int ConfigId { get; set; }
+        public int? ConfigId { get; set; }
         public int EspId { get; set; }
         public DateTime FecMinReserva { get; set; }
         public DateTime FecMaxReserva { get; set; }
