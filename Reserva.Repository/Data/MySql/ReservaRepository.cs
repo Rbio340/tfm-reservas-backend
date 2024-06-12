@@ -34,7 +34,7 @@ namespace Reserva.Repository.Data.MySql
         public Reservas GetReservaById(int? id)
         {
             return _context.Reservas.Include(r => r.Esp)
-                .Include(r => r.Usu) .Where(r=> r.EstId==1).FirstOrDefault(m => m.ResId == id);
+                .Include(r => r.Usu) .Where(r=> r.EstId==1).FirstOrDefault(m => m.EspId == id);
         }
 
         public bool ReservaExists(int id)

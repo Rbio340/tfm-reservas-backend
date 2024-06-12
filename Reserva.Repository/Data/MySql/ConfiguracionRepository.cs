@@ -25,6 +25,7 @@ namespace Reserva.Repository.Data.MySql
 
         public void CreateConfiguracion(Configuracion configuracion)
         {
+            configuracion.ConfigId = null;
             _context.Add(configuracion);
             _context.SaveChanges();
         }
