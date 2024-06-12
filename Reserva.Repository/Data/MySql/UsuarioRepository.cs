@@ -48,7 +48,7 @@ namespace Reserva.Repository.Data.MySql
 
         public Usuario ValidateUser(string username, string password)
         {
-            return _context.Usuarios.SingleOrDefault(u => u.UsuNombre == username && u.UsuPassword == password);
+            return _context.Usuarios.Include(u => u.IdRolNavigation).SingleOrDefault(u => u.UsuNombre == username && u.UsuPassword == password);
         }
 
     }

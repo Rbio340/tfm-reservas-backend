@@ -15,6 +15,7 @@ public partial class Usuario
     public string UsuPassword { get; set; } = null!;
 
     public int? IdRol { get; set; }
+    public string? RolNombre => IdRolNavigation.Nombre;
 
     [JsonIgnore]
     public virtual Estado? Est { get; set; }

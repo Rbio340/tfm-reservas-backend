@@ -34,14 +34,18 @@ namespace Reserva.Api.Controllers
             var key = Encoding.ASCII.GetBytes("w8BNJn2L9XQHTTgY7rCcWHB5eC5sEuJnHfRJNjZUkGqJTp9kHZ"); // Reemplaza con tu propia clave secreta
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", user.EstId.ToString()) }),
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim("id", user.EstId.ToString()),
+                    new Claim(ClaimTypes.Role, user.RolNombre.ToString()),
+                }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
 
-            return Ok(new { Token = tokenString });
+            return Ok(new { Token = tokenString, Role = user.IdRol.ToString(), NombreRol = user.RolNombre.ToString() });
         }
     }
 }
