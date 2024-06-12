@@ -37,15 +37,11 @@ namespace tfm_reservas_back_end.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Reservas>> GetReservas(int id)
         {
-            if (_reservaRepository.ReservaExists == null)
-            {
-                return NotFound();
-            }
             var reservas = _reservaRepository.GetReservaById(id);
 
-            if (reservas == null)
+            if (reservas == null || reservas.ResId == 0)
             {
-                return NotFound();
+                return new JsonResult(new { });
             }
 
             return reservas;
