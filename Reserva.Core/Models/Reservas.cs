@@ -30,7 +30,6 @@ public partial class Reservas
 
     [JsonIgnore]
     public virtual Usuario? Usu { get; set; }
-
-    public string EspNombre => Esp?.EspNombre;
-    public string UsuNombre => Usu?.UsuNombre;
+    public string? EspNombre => Esp?.EspNombre;
+    public string? UsuNombre => Usu?.UsuNombre;
 }

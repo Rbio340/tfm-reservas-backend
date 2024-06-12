@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var key = Encoding.ASCII.GetBytes("TuClaveSecretaMuySegura12345"); // Reemplaza con tu propia clave secreta
+var key = Encoding.ASCII.GetBytes("TuClaveSecretaMuySegura12345"); 
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -54,6 +54,13 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
+});
+
+// Agregar autorización basada en roles
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("User", policy => policy.RequireRole("User"));
 });
 
 builder.Services.AddEndpointsApiExplorer();
