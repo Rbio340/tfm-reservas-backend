@@ -16,6 +16,7 @@ namespace Reserva.Repository.Data.MySql
 
         public void CreateReserva(Reservas reservas)
         {
+            reservas.EstId = 1;
             _context.Add(reservas);
             _context.SaveChanges();
         }
