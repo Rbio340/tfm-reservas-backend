@@ -10,7 +10,7 @@ namespace Reserva.Core.Interfaces.Repository.MySql
     public interface IReservaRepository
     {
         public List<Reservas> GetReserva();
-        public Reservas GetReservaById(int? id);
+        public List<Reservas> GetReservaById(int? id);
         public void CreateReserva(Reservas reservas);
         public void UpdateReserva(Reservas reservas);
         public void DeleteReserva(Reservas reservas);
