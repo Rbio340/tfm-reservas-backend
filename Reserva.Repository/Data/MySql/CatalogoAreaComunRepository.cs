@@ -21,24 +21,25 @@ namespace Reserva.Repository.Data.MySql
 
         public void CreateCatalogoAreaComun(CatalogoAreaComun catalogoArea)
         {
+            catalogoArea.EstId = 1;
             _context.Add(catalogoArea);
             _context.SaveChanges();
         }
 
         public void DeleteCatalogoAreaComun(CatalogoAreaComun catalogoArea)
         {
-            _context.Remove(catalogoArea);
+            _context.Update(catalogoArea);
             _context.SaveChanges();
         }
 
         public List<CatalogoAreaComun> GetCatalogoAreaComun()
         {
-            return _context.CatalogoAreaComuns.ToList();
+            return _context.CatalogoAreaComuns.Where(m => m.EstId==1).ToList();
         }
 
         public CatalogoAreaComun GetCatalogoAreaComunById(int? id)
         {
-            return _context.CatalogoAreaComuns.FirstOrDefault(m => m.CatespId == id);
+            return _context.CatalogoAreaComuns.Where(m=> m.EstId == 1 ).FirstOrDefault(m => m.CatespId == id);
         }
 
         public void UpdateCatalogoAreaComun(CatalogoAreaComun catalogoArea)

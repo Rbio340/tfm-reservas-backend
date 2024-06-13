@@ -1,4 +1,5 @@
-﻿using Reserva.Core.Interfaces.Repository.MySql;
+﻿using Microsoft.EntityFrameworkCore;
+using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 using Reserva.Repository.Context;
 
@@ -20,18 +21,18 @@ namespace Reserva.Repository.Data.MySql
 
         public void DeleteUsuario(Usuario usuario)
         {
-            _context.Remove(usuario);
+            _context.Update(usuario);
             _context.SaveChanges();
         }
 
         public Usuario GetUsuarioById(int? id)
         {
-            return _context.Usuarios.FirstOrDefault(m => m.UsuId == id);
+            return _context.Usuarios.Include(u => u.Est).Include(u => u.IdRolNavigation).Where(u => u.EstId == 1).FirstOrDefault(m => m.UsuId == id);
         }
 
         public List<Usuario> GetUsuarios()
         {
-            return _context.Usuarios.ToList();
+            return _context.Usuarios.Include(u => u.Est).Where(u => u.EstId == 1).ToList();
         }
 
         public void UpdateUsuario(Usuario usuario)
@@ -44,5 +45,11 @@ namespace Reserva.Repository.Data.MySql
         {
             return _context.Usuarios.Any(m => m.UsuId == id);
         }
+
+        public Usuario ValidateUser(string username, string password)
+        {
+            return _context.Usuarios.Include(u => u.IdRolNavigation).SingleOrDefault(u => u.UsuNombre == username && u.UsuPassword == password);
+        }
+
     }
 }
