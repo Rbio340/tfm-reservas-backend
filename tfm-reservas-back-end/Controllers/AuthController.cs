@@ -45,7 +45,12 @@ namespace Reserva.Api.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
 
-            return Ok(new { Token = tokenString, Role = user.IdRol.ToString(), NombreRol = user.RolNombre.ToString() });
+            return Ok(new { 
+                Token = tokenString, Role = user.IdRol.ToString(), 
+                NombreRol = user.RolNombre.ToString(), 
+                Id = user.UsuId,
+                NombreUsuario = user.UsuNombre
+            });
         }
     }
 }

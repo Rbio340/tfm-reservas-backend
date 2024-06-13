@@ -32,10 +32,10 @@ namespace Reserva.Repository.Data.MySql
             return _context.Reservas.Include(r => r.Esp).Include(r => r.Usu).Where(r => r.EstId == 1).ToList();
         }
 
-        public Reservas GetReservaById(int? id)
+        public List<Reservas> GetReservaById(int? id)
         {
             return _context.Reservas.Include(r => r.Esp)
-                .Include(r => r.Usu) .Where(r=> r.EstId==1).FirstOrDefault(m => m.EspId == id);
+                .Include(r => r.Usu) .Where(r=> r.EstId==1 && r.EspId == id).ToList();
         }
 
         public bool ReservaExists(int id)

@@ -35,11 +35,11 @@ namespace tfm_reservas_back_end.Controllers
 
         // GET: api/Reserva/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Reservas>> GetReservas(int id)
+        public async Task<ActionResult<List<Reservas>>> GetReservas(int id)
         {
             var reservas = _reservaRepository.GetReservaById(id);
 
-            if (reservas == null || reservas.ResId == 0)
+            if (reservas == null || reservas.Count() == 0)
             {
                 return new JsonResult(new { });
             }
@@ -94,7 +94,8 @@ namespace tfm_reservas_back_end.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReservas(int id)
         {
-            if (_reservaRepository.ReservaExists == null)
+            return Ok();
+           /* if (_reservaRepository.ReservaExists == null)
             {
                 return NotFound();
             }
@@ -108,7 +109,7 @@ namespace tfm_reservas_back_end.Controllers
 
             _reservaRepository.DeleteReserva(reservas);
 
-            return NoContent();
+            return NoContent();*/
         }
     }
 }
