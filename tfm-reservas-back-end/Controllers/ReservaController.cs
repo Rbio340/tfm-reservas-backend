@@ -41,7 +41,7 @@ namespace tfm_reservas_back_end.Controllers
 
             if (reservas == null || reservas.Count() == 0)
             {
-                return new JsonResult(new { });
+                return Ok(reservas);
             }
 
             return reservas;
