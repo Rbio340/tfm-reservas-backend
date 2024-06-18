@@ -9,6 +9,7 @@ public partial class Rol
     public string Nombre { get; set; } = null!;
 
     public int? EstId { get; set; }
+    public int? EstId1 { get; set; }
 
     [JsonIgnore]
     public virtual Estado? Est { get; set; }
