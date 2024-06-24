@@ -5,7 +5,7 @@ using Reserva.Repository.Context;
 
 namespace Reserva.Repository.Data.MySql
 {
-    public class UsuarioRepository:IUsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly ReservaContext _context;
         public UsuarioRepository(ReservaContext context) 
@@ -46,10 +46,19 @@ namespace Reserva.Repository.Data.MySql
             return _context.Usuarios.Any(m => m.UsuId == id);
         }
 
+        public bool UsuarioExistsByCedula(string cedula)
+        {
+            return _context.Usuarios.Any(u => u.Cedula == cedula);
+        }
+
+        public bool UsuarioExistsByNombreUsuario(string nombreUsuario)
+        {
+            return _context.Usuarios.Any(u => u.UsuNombre == nombreUsuario);
+        }
+
         public Usuario ValidateUser(string username, string password)
         {
             return _context.Usuarios.Include(u => u.IdRolNavigation).SingleOrDefault(u => u.UsuNombre == username && u.UsuPassword == password);
         }
-
     }
 }
