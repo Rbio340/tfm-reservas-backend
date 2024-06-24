@@ -109,5 +109,29 @@ namespace tfm_reservas_back_end.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("existsByCedula/{cedula}")]
+        public async Task<ActionResult<bool>> ExistsByCedula(string cedula)
+        {
+            if (_usuario.UsuarioExists == null)
+            {
+                return NotFound();
+            }
+
+            bool exists = _usuario.UsuarioExistsByCedula(cedula);
+            return Ok(exists);
+        }
+
+        [HttpGet("existsByNombreUsuario/{nombreUsuario}")]
+        public async Task<ActionResult<bool>> ExistsByNombreUsuario(string nombreUsuario)
+        {
+            if (_usuario.UsuarioExists == null)
+            {
+                return NotFound();
+            }
+
+            bool exists = _usuario.UsuarioExistsByNombreUsuario(nombreUsuario);
+            return Ok(exists);
+        }
     }
 }
