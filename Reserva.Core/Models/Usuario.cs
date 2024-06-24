@@ -13,9 +13,12 @@ public partial class Usuario
     public string UsuNombre { get; set; } = null!;
 
     public string UsuPassword { get; set; } = null!;
+    public string Nombre { get; set; } = null!;
+    public string Apellido { get; set; } = null!;
+    public string Cedula { get; set; } = null!;
 
     public int? IdRol { get; set; }
-    public string? RolNombre => IdRolNavigation.Nombre;
+    public string? RolNombre => IdRolNavigation != null ? IdRolNavigation.Nombre :default;
 
     [JsonIgnore]
     public virtual Estado? Est { get; set; }

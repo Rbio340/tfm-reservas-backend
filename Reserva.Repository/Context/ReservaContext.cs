@@ -176,6 +176,15 @@ public partial class ReservaContext : DbContext
             entity.Property(e => e.UsuPassword)
                 .HasMaxLength(250)
                 .HasColumnName("USU_PASSWORD");
+            entity.Property(e => e.Nombre)
+               .HasMaxLength(45)
+               .HasColumnName("NOMBRE");
+            entity.Property(e => e.Apellido)
+               .HasMaxLength(45)
+               .HasColumnName("APELLIDO");
+            entity.Property(e => e.Cedula)
+               .HasMaxLength(10)
+               .HasColumnName("CEDULA");
 
             entity.HasOne(d => d.Est).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.EstId)
