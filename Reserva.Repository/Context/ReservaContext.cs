@@ -185,6 +185,9 @@ public partial class ReservaContext : DbContext
             entity.Property(e => e.Cedula)
                .HasMaxLength(10)
                .HasColumnName("CEDULA");
+            entity.Property(e => e.Genero)
+               .HasMaxLength(1)
+               .HasColumnName("GENERO");
 
             entity.HasOne(d => d.Est).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.EstId)

@@ -119,7 +119,7 @@ namespace tfm_reservas_back_end.Controllers
             }
 
             bool exists = _usuario.UsuarioExistsByCedula(cedula);
-            return Ok(exists);
+            return Ok(new { ok = exists });
         }
 
         [HttpGet("existsByNombreUsuario/{nombreUsuario}")]
@@ -131,7 +131,7 @@ namespace tfm_reservas_back_end.Controllers
             }
 
             bool exists = _usuario.UsuarioExistsByNombreUsuario(nombreUsuario);
-            return Ok(exists);
+            return Ok(new { ok = exists } );
         }
     }
 }

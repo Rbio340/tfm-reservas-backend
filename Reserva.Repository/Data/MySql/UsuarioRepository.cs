@@ -15,6 +15,8 @@ namespace Reserva.Repository.Data.MySql
 
         public void CreateUsuario(Usuario usuario)
         {
+            usuario.EstId = 1;
+            usuario.UsuPassword = usuario.Cedula;
             _context.Add(usuario);
             _context.SaveChanges();
         }
