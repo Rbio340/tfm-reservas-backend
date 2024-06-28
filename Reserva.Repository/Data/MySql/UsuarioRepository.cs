@@ -16,6 +16,7 @@ namespace Reserva.Repository.Data.MySql
         public void CreateUsuario(Usuario usuario)
         {
             usuario.EstId = 1;
+            usuario.IdRol = 2;
             usuario.UsuPassword = usuario.Cedula;
             _context.Add(usuario);
             _context.SaveChanges();
@@ -29,12 +30,12 @@ namespace Reserva.Repository.Data.MySql
 
         public Usuario GetUsuarioById(int? id)
         {
-            return _context.Usuarios.Include(u => u.Est).Include(u => u.IdRolNavigation).Where(u => u.EstId == 1).FirstOrDefault(m => m.UsuId == id);
+            return _context.Usuarios.Include(u => u.Est).Include(u => u.IdRolNavigation).FirstOrDefault(m => m.UsuId == id);
         }
 
         public List<Usuario> GetUsuarios()
         {
-            return _context.Usuarios.Include(u => u.Est).Where(u => u.EstId == 1).ToList();
+            return _context.Usuarios.Include(u => u.Est).Include(u=> u.IdRolNavigation).Where(u=> u.IdRol == 2).ToList();
         }
 
         public void UpdateUsuario(Usuario usuario)

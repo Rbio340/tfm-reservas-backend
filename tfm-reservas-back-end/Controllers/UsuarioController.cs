@@ -102,8 +102,7 @@ namespace tfm_reservas_back_end.Controllers
             {
                 return NotFound();
             }
-
-            usuario.EstId = 0;
+            usuario.EstId = usuario.EstId == 1 ? 0 : 1;
 
             _usuario.DeleteUsuario(usuario);
 
