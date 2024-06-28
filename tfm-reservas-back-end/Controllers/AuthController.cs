@@ -44,12 +44,14 @@ namespace Reserva.Api.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
+            var needsChange = user.Cedula == loginModel.Password;
 
             return Ok(new { 
                 Token = tokenString, Role = user.IdRol.ToString(), 
                 NombreRol = user.RolNombre.ToString(), 
                 Id = user.UsuId,
-                NombreUsuario = user.UsuNombre
+                NombreUsuario = user.UsuNombre,
+                NeedsChangePasswd = needsChange
             });
         }
     }
