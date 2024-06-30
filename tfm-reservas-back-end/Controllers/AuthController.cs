@@ -31,7 +31,8 @@ namespace Reserva.Api.Controllers
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("w8BNJn2L9XQHTTgY7rCcWHB5eC5sEuJnHfRJNjZUkGqJTp9kHZ"); // Reemplaza con tu propia clave secreta
+            var secretKey = _configuration["JwtSettings:SecretKey"];
+            var key = Encoding.ASCII.GetBytes(secretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]

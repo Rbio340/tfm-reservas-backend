@@ -9,8 +9,8 @@ using Reserva.Repository.Data.MySql;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-
-var key = Encoding.ASCII.GetBytes("TuClaveSecretaMuySegura12345"); 
+var secretKey = builder.Configuration["JwtSettings:SecretKey"];
+var key = Encoding.ASCII.GetBytes(secretKey);
 
 // Add services to the container.
 builder.Services.AddControllers();
