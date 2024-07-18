@@ -16,23 +16,14 @@ public partial class ReservaContext : DbContext
     }
 
     public virtual DbSet<AreaComun> AreaComuns { get; set; }
-
     public virtual DbSet<CatalogoAreaComun> CatalogoAreaComuns { get; set; }
-
     public virtual DbSet<Estado> Estados { get; set; }
-
     public virtual DbSet<Reservas> Reservas { get; set; }
-
     public virtual DbSet<Usuario> Usuarios { get; set; }
-
     public virtual DbSet<Configuracion> Configuracion { get; set; }
-
     public virtual DbSet<Rol> Rols { get; set; }
-
     public DbSet<AreaComunDto> AreaComunDtos { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
 
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseMySQL("Server=db-demo-unir.ckhnlwuydbta.us-east-1.rds.amazonaws.com;Database=Reservas;Uid=admin;Pwd=123456789;");
@@ -230,9 +221,5 @@ public partial class ReservaContext : DbContext
 
         OnModelCreatingPartial(modelBuilder);
     }
-
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-
-
 }
