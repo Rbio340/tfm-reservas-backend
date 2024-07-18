@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
-using Reserva.Repository.Context;
 
 namespace tfm_reservas_back_end.Controllers
 {
@@ -74,7 +68,6 @@ namespace tfm_reservas_back_end.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
