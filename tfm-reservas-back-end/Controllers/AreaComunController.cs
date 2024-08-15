@@ -5,7 +5,6 @@ using Reserva.Core.Models;
 
 namespace tfm_reservas_back_end.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AreaComunController : ControllerBase

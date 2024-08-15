@@ -11,6 +11,7 @@ using Reserva.Core.Reports;
 using DevExpress.XtraReports.UI;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
+using Reserva.Core.Dto;
 
 namespace Cne.SCFRBackend.Services.Api.Services
 {
@@ -20,15 +21,18 @@ namespace Cne.SCFRBackend.Services.Api.Services
         const string FileExtension = ".cs";
         readonly string ReportDirectory;
         private readonly IReservaRepository _reservaRepository;
+        private readonly IAreaComunRepository _areaComunRepository;
 
         public static byte[] GlobalImage { get; set; }
 
 
-        public CustomReportStorageWebExtension(IReservaRepository reservaRepository
+        public CustomReportStorageWebExtension(IReservaRepository reservaRepository,
+            IAreaComunRepository areaComunRepository
             //IWebHostEnvironment env
             )
         {
             _reservaRepository = reservaRepository;
+            _areaComunRepository = areaComunRepository;
         }
 
         /*public CustomReportStorageWebExtension()
@@ -76,15 +80,22 @@ namespace Cne.SCFRBackend.Services.Api.Services
                         //    report = () => new XrCiudadano(resCiudadano);
                         //    report().SaveLayoutToXml(ms);
                         //    break;
-                        case "XrComprobanteCrca":
-
-
+                        case "XrReservas":
                             //CrcaByCodQuery requestCrca = JsonConvert.DeserializeObject<CrcaByCodQuery>(repJsonP.paramsReport.data!.ToString()!)!;
                             List<Reservas> dataReservas = this._reservaRepository.GetReserva();
                             /*HeaderReporte headerCrca = repJsonP.paramsReport.header!;
                             FooterReporte footerCrca = repJsonP.paramsReport!.footer!;
                             var dataReport = new ReportCrcaViewModel(headerCrca, dataCrca, footerCrca);*/
-                            report = () => new XtraReport1(dataReservas);
+                            report = () => new XrReservas(dataReservas);
+                            report().SaveLayoutToXml(ms);
+                            break;
+                        case "XrAreasComunes":
+                            //CrcaByCodQuery requestCrca = JsonConvert.DeserializeObject<CrcaByCodQuery>(repJsonP.paramsReport.data!.ToString()!)!;
+                            List<AreaComunDto> dataAreas = this._areaComunRepository.GetAreasComun();
+                            /*HeaderReporte headerCrca = repJsonP.paramsReport.header!;
+                            FooterReporte footerCrca = repJsonP.paramsReport!.footer!;
+                            var dataReport = new ReportCrcaViewModel(headerCrca, dataCrca, footerCrca);*/
+                            report = () => new XrAreasComunes(dataAreas);
                             report().SaveLayoutToXml(ms);
                             break;
                     }
