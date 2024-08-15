@@ -10,14 +10,14 @@ using System.Drawing;
 
 namespace Reserva.Core.Reports
 {
-    public partial class XtraReport1 : DevExpress.XtraReports.UI.XtraReport
+    public partial class XrReservas : DevExpress.XtraReports.UI.XtraReport
     {
-        public XtraReport1()
+        public XrReservas()
         {
             //InitializeComponent();
         }
 
-        public XtraReport1(List<Reservas> reservas)
+        public XrReservas(List<Reservas> reservas)
         {
             var reservaReporte = new ReservaReporte(reservas);
 
