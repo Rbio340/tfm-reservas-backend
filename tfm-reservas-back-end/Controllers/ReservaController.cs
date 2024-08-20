@@ -6,7 +6,6 @@ using Reserva.Core.Models;
 
 namespace tfm_reservas_back_end.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ReservaController : ControllerBase
@@ -34,6 +33,19 @@ namespace tfm_reservas_back_end.Controllers
         public async Task<ActionResult<List<Reservas>>> GetReservas(int id)
         {
             var reservas = _reservaRepository.GetReservaById(id);
+
+            if (reservas == null || reservas.Count() == 0)
+            {
+                return Ok(reservas);
+            }
+
+            return reservas;
+        }
+
+        [HttpGet("historial/{id}")]
+        public async Task<ActionResult<List<Reservas>>> GetHistorialByUser(int id, DateTime fechaInicio, DateTime fechaFin)
+        {
+            var reservas = _reservaRepository.GetHistorial( id,  fechaInicio,  fechaFin);
 
             if (reservas == null || reservas.Count() == 0)
             {
