@@ -1,0 +1,799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="customJsonSource1.Json" xml:space="preserve">
+    <value>{
+data: 
+[
+  {
+    "resId": 1,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-10T16:26:26",
+    "resNumPersonas": 1,
+    "estId": 1,
+    "horaIni": "16:04:03",
+    "horaFinal": "16:04:05",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 2,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-10T16:26:26",
+    "resNumPersonas": 2,
+    "estId": 1,
+    "horaIni": "16:04:05",
+    "horaFinal": "16:04:05",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 3,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-12T20:19:08",
+    "resNumPersonas": 4,
+    "estId": 1,
+    "horaIni": "14:40:00",
+    "horaFinal": "13:30:00",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 4,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-05T05:00:00",
+    "resNumPersonas": 14,
+    "estId": 1,
+    "horaIni": "18:33:23",
+    "horaFinal": "15:33:22",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 5,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-05T05:00:00",
+    "resNumPersonas": 14,
+    "estId": 1,
+    "horaIni": "18:33:23",
+    "horaFinal": "17:00:00",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 6,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-11T05:00:00",
+    "resNumPersonas": 11,
+    "estId": 1,
+    "horaIni": "15:33:52",
+    "horaFinal": "18:33:53",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 7,
+    "usuId": 1,
+    "espId": 11,
+    "resFecha": "2024-06-13T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "09:17:49",
+    "horaFinal": "10:17:51",
+    "espNombre": "Bar piso 10",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 8,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-13T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "13:44:44",
+    "horaFinal": "09:44:42",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 9,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-11T05:00:00",
+    "resNumPersonas": 11,
+    "estId": 1,
+    "horaIni": "08:46:17",
+    "horaFinal": "09:46:21",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 10,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-14T05:00:00",
+    "resNumPersonas": 15,
+    "estId": 1,
+    "horaIni": "09:15:07",
+    "horaFinal": "11:15:09",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 11,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-14T05:00:00",
+    "resNumPersonas": 15,
+    "estId": 1,
+    "horaIni": "09:15:07",
+    "horaFinal": "11:15:09",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 12,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-14T05:00:00",
+    "resNumPersonas": 15,
+    "estId": 1,
+    "horaIni": "04:59:53",
+    "horaFinal": "09:53:46",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 13,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-06-14T05:00:00",
+    "resNumPersonas": 15,
+    "estId": 1,
+    "horaIni": "04:59:53",
+    "horaFinal": "09:53:46",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 14,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-25T05:00:00",
+    "resNumPersonas": 12,
+    "estId": 1,
+    "horaIni": "16:08:05",
+    "horaFinal": "17:08:07",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 15,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "01:34:51",
+    "horaFinal": "10:40:53",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 16,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "01:34:51",
+    "horaFinal": "10:40:53",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 17,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "01:34:51",
+    "horaFinal": "10:40:53",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 18,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "01:34:51",
+    "horaFinal": "10:40:53",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 19,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "05:36:39",
+    "horaFinal": "16:36:45",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 20,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "05:36:39",
+    "horaFinal": "16:36:45",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 21,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "05:36:39",
+    "horaFinal": "16:36:45",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 22,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "05:36:39",
+    "horaFinal": "16:36:45",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 23,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "05:36:39",
+    "horaFinal": "16:36:45",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 24,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "05:36:39",
+    "horaFinal": "16:36:45",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 25,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "05:36:39",
+    "horaFinal": "16:36:45",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 26,
+    "usuId": 1,
+    "espId": 17,
+    "resFecha": "2024-07-03T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "06:37:33",
+    "horaFinal": "08:37:38",
+    "espNombre": "Piscina Piso 30",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 27,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-05T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "16:36:09",
+    "horaFinal": "23:36:11",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 28,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-05T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "16:36:09",
+    "horaFinal": "23:36:11",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 29,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 30,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 31,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 32,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 33,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 34,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 35,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 36,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 37,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 38,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 39,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 40,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 41,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-06-19T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:37:00",
+    "horaFinal": "23:37:04",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 44,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "11:36:17",
+    "horaFinal": "11:38:23",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 45,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "11:44:49",
+    "horaFinal": "11:45:51",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 46,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "11:52:22",
+    "horaFinal": "11:52:23",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 47,
+    "usuId": null,
+    "espId": 8,
+    "resFecha": "2024-07-02T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "11:52:46",
+    "horaFinal": "11:55:48",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": null
+  },
+  {
+    "resId": 48,
+    "usuId": null,
+    "espId": 8,
+    "resFecha": "2024-07-03T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "11:54:29",
+    "horaFinal": "14:55:34",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": null
+  },
+  {
+    "resId": 49,
+    "usuId": null,
+    "espId": 8,
+    "resFecha": "2024-07-04T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "11:59:14",
+    "horaFinal": "13:59:16",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": null
+  },
+  {
+    "resId": 50,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-07-01T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "08:12:53",
+    "horaFinal": "10:12:57",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 51,
+    "usuId": null,
+    "espId": 8,
+    "resFecha": "2024-07-05T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "07:13:20",
+    "horaFinal": "19:13:23",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": null
+  },
+  {
+    "resId": 52,
+    "usuId": null,
+    "espId": 8,
+    "resFecha": "2024-07-18T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "10:52:36",
+    "horaFinal": "13:52:38",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": null
+  },
+  {
+    "resId": 53,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-07-18T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": null,
+    "horaFinal": null,
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 54,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-07-17T05:00:00",
+    "resNumPersonas": 11,
+    "estId": 1,
+    "horaIni": null,
+    "horaFinal": null,
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 55,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-07-17T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": null,
+    "horaFinal": null,
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 56,
+    "usuId": 1,
+    "espId": 8,
+    "resFecha": "2024-07-19T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "08:27:45",
+    "horaFinal": "14:27:47",
+    "espNombre": "Discoteca piso 3",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 57,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-07-30T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "09:59:01",
+    "horaFinal": "12:00:12",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  },
+  {
+    "resId": 58,
+    "usuId": 1,
+    "espId": 9,
+    "resFecha": "2024-08-11T05:00:00",
+    "resNumPersonas": 10,
+    "estId": 1,
+    "horaIni": "14:43:37",
+    "horaFinal": "17:43:38",
+    "espNombre": "Piscina Piso 5",
+    "usuNombre": "AlanJuker"
+  }
+]
+}</value>
+  </data>
+</root>

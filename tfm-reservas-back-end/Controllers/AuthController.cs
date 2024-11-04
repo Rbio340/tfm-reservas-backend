@@ -31,7 +31,8 @@ namespace Reserva.Api.Controllers
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("w8BNJn2L9XQHTTgY7rCcWHB5eC5sEuJnHfRJNjZUkGqJTp9kHZ"); // Reemplaza con tu propia clave secreta
+            var secretKey = _configuration["JwtSettings:SecretKey"];
+            var key = Encoding.ASCII.GetBytes(secretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
@@ -44,12 +45,14 @@ namespace Reserva.Api.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
+            var needsChange = user.Cedula == loginModel.Password;
 
             return Ok(new { 
                 Token = tokenString, Role = user.IdRol.ToString(), 
                 NombreRol = user.RolNombre.ToString(), 
                 Id = user.UsuId,
-                NombreUsuario = user.UsuNombre
+                NombreUsuario = user.UsuNombre,
+                NeedsChangePasswd = needsChange
             });
         }
     }

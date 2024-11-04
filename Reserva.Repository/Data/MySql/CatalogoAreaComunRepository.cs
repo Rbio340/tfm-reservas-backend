@@ -44,6 +44,7 @@ namespace Reserva.Repository.Data.MySql
 
         public void UpdateCatalogoAreaComun(CatalogoAreaComun catalogoArea)
         {
+            catalogoArea.EstId = 1;
             _context.Update(catalogoArea);
             _context.SaveChanges();
         }

@@ -1,12 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Reserva.Core.Interfaces.Repository.MySql;
+﻿using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 using Reserva.Repository.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Reserva.Repository.Data.MySql
 {

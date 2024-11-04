@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
 
 namespace tfm_reservas_back_end.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ConfiguracionController : ControllerBase

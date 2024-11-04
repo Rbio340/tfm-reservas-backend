@@ -6,11 +6,13 @@ using System.Text;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Repository.Context;
 using Reserva.Repository.Data.MySql;
-using System.Text.Json.Serialization;
+using Cne.SCFRBackend.Services.Api.Services;
+using DevExpress.AspNetCore;
+using DevExpress.XtraReports.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
-var key = Encoding.ASCII.GetBytes("TuClaveSecretaMuySegura12345"); 
+var secretKey = builder.Configuration["JwtSettings:SecretKey"];
+var key = Encoding.ASCII.GetBytes(secretKey);
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -26,6 +28,9 @@ builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IConfiguracionRepository, ConfiguracionRepository>();
 builder.Services.AddScoped<IRolRepository, RolRepository>();
+
+builder.Services.AddDevExpressControls();
+builder.Services.AddScoped<ReportStorageWebExtension, CustomReportStorageWebExtension>(); 
 
 // Configurar CORS
 builder.Services.AddCors(options =>

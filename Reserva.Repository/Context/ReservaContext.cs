@@ -16,26 +16,17 @@ public partial class ReservaContext : DbContext
     }
 
     public virtual DbSet<AreaComun> AreaComuns { get; set; }
-
     public virtual DbSet<CatalogoAreaComun> CatalogoAreaComuns { get; set; }
-
     public virtual DbSet<Estado> Estados { get; set; }
-
     public virtual DbSet<Reservas> Reservas { get; set; }
-
     public virtual DbSet<Usuario> Usuarios { get; set; }
-
     public virtual DbSet<Configuracion> Configuracion { get; set; }
-
     public virtual DbSet<Rol> Rols { get; set; }
-
     public DbSet<AreaComunDto> AreaComunDtos { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("Server=db-demo-unir.ckhnlwuydbta.us-east-1.rds.amazonaws.com;Database=Reservas;Uid=admin;Pwd=123456789;");
+        => optionsBuilder.UseMySQL("Server=localhost;Database=reservas;Uid=root;Pwd=root;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -176,6 +167,18 @@ public partial class ReservaContext : DbContext
             entity.Property(e => e.UsuPassword)
                 .HasMaxLength(250)
                 .HasColumnName("USU_PASSWORD");
+            entity.Property(e => e.Nombre)
+               .HasMaxLength(45)
+               .HasColumnName("NOMBRE");
+            entity.Property(e => e.Apellido)
+               .HasMaxLength(45)
+               .HasColumnName("APELLIDO");
+            entity.Property(e => e.Cedula)
+               .HasMaxLength(10)
+               .HasColumnName("CEDULA");
+            entity.Property(e => e.Genero)
+               .HasMaxLength(1)
+               .HasColumnName("GENERO");
 
             entity.HasOne(d => d.Est).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.EstId)
@@ -218,9 +221,5 @@ public partial class ReservaContext : DbContext
 
         OnModelCreatingPartial(modelBuilder);
     }
-
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-
-
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Reserva.Core.Interfaces.Repository.MySql;
 using Reserva.Core.Models;
-using Reserva.Repository.Context;
 
 namespace tfm_reservas_back_end.Controllers
 {
@@ -41,7 +36,20 @@ namespace tfm_reservas_back_end.Controllers
 
             if (reservas == null || reservas.Count() == 0)
             {
-                return new JsonResult(new { });
+                return Ok(reservas);
+            }
+
+            return reservas;
+        }
+
+        [HttpGet("historial/{id}")]
+        public async Task<ActionResult<List<Reservas>>> GetHistorialByUser(int id, DateTime fechaInicio, DateTime fechaFin)
+        {
+            var reservas = _reservaRepository.GetHistorial( id,  fechaInicio,  fechaFin);
+
+            if (reservas == null || reservas.Count() == 0)
+            {
+                return Ok(reservas);
             }
 
             return reservas;
@@ -72,7 +80,6 @@ namespace tfm_reservas_back_end.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
